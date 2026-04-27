@@ -79,7 +79,6 @@ if (signInForm) {
     signInForm.reset();
   });
 }
-console.log(userData);
 //login logic
 (() => {
   "use strict";
