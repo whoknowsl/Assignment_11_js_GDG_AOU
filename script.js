@@ -22,8 +22,10 @@ function users(name, email, password) {
 //this function response for sign in it valdatie the user before creating account
 function createUser(name, email, password) {
   const user = new users(name, email, password);
-  if (userData.some((user) => user.email === email))
+  if (userData.some((user) => user.email === email)) {
     errorMessage.textContent = "this email is alerady taken";
+    return;
+  }
   userData.push(user);
   localStorage.setItem("userData", JSON.stringify(userData));
   localStorage.setItem("currentUser", JSON.stringify(user));
@@ -50,7 +52,7 @@ function enterUser(email, password) {
   logInForm.reset();
 }
 
-//this is response for rendering the card 
+//this is response for rendering the card
 if (card) {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (currentUser) {
@@ -73,16 +75,11 @@ if (logInForm) {
 if (signInForm) {
   signInForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    createUser(
-      nameInput.value,
-      emailInput.value,
-      passwordInput.value,
-      signInForm,
-    );
+    createUser(nameInput.value, emailInput.value, passwordInput.value);
     signInForm.reset();
   });
 }
-
+console.log(userData);
 //login logic
 (() => {
   "use strict";
