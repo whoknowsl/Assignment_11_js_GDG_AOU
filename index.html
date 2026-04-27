@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookmarker</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="logIn">
     <img
-      src="background-imges/firstOne.png"
+      src="background-imges/secondeOne.png"
       class="bk0images"
       width="173px"
       height="94px"
@@ -24,13 +24,13 @@
       height="262px"
       class="bk1images"
     /><img
-      src="background-imges/thirdOne.png"
+      src="background-imges/sevenOne.png"
       width="475px"
       height="442px"
       class="bk2images"
     />
     <img
-      src="background-imges/sixOne.png"
+      src="background-imges/sevenOne.png"
       width="475px"
       height="442px"
       class="bk6images"
@@ -42,15 +42,15 @@
       class="bk4images"
     />
     <img
-      src="background-imges/fifthOne.png"
+      src="background-imges/sevenOne.png"
       width="145px"
       height="145px"
       class="bk5images"
     />
     <img
       src="background-imges/sevenOne.png"
-      width="125px"
-      height="40px"
+      width="475px"
+      height="140px"
       class="bk7images"
     />
     <img
@@ -61,14 +61,14 @@
     />
     <img
       src="background-imges/sevenOne.png"
-      width="125px"
-      height="40px"
+      width="475px"
+      height="140px"
       class="bk9images"
     />
     <form
       action="#"
-      class="regestirForm d-flex flex-column align-self-center justify-content-center z-3"
-      id="form"
+      class="needs-validation d-flex flex-column align-self-center justify-content-center z-3"
+      id="regestirForm"
     >
       <h1 class="text-light">Smart Login System</h1>
       <label for="login-email-Input" class="text-light">Email</label>
@@ -84,11 +84,24 @@
         type="password"
         required
         placeholder="Enter your password"
+        pattern=".{8,}"
         id="login-password-Input"
         class="p-2 border border-0 rounded-1 form-control"
       />
-      <input type="submit" value="Log In" id="submit-Input" class="login-btn mt-4 p-3 fw-bolder"/>
-      <p class="text-light text-center mt-3">You have an account? <a href="signInForm.html" class="text-light fw-bolder">Sign Up</a></p>
+      <p
+        id="error-messges"
+        class="message-error text-danger p-1 mt-1 fw-bolder"
+      ></p>
+      <input
+        type="submit"
+        value="Log In"
+        id="submit-Input"
+        class="login-btn mt-4 p-3 fw-bolder"
+      />
+      <p class="text-light text-center mt-3">
+        You have an account?
+        <a href="signInForm.html" class="text-light fw-bolder">Sign In</a>
+      </p>
     </form>
   </body>
   <script
