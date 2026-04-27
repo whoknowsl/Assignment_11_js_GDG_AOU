@@ -7,7 +7,7 @@ const logInForm = document.querySelector(".regestirForm");
 const logInEmail = document.getElementById("login-email-Input");
 const logInPassword = document.getElementById("login-password-Input");
 
-const userData = JSON.parse(sessionStorage.getItem("userData")) || [];
+const userData = JSON.parse(localStorage.getItem("userData")) || [];
 
 function users(name, email, password) {
   this.name = name;
@@ -17,11 +17,11 @@ function users(name, email, password) {
 
 function createUser(name, email, password) {
   const user = new users(name, email, password);
-  if (userData.some((user) => user.email === emailInput.value))
+  if (userData.some((user) => user.email === email))
     return alert("this email alerady taken");
   userData.push(user);
-  sessionStorage.setItem("userData", JSON.stringify(userData));
-  signInForm.reset();
+  localStorage.setItem("userData", JSON.stringify(userData));
+  localStorage.setItem("currentUser", JSON.stringify(user));
   window.location.href = "dashboard.html";
 }
 
@@ -35,45 +35,40 @@ if (signInForm) {
       passwordInput.value,
       signInForm,
     );
+    signInForm.reset();
   });
 }
 
 // Dashboard page
 if (card) {
-  userData.forEach((user) => {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (currentUser) {
     card.innerHTML = `
-        <span class="card-image">HR</span>
-        <h3 class="user-name">${user.name}</h3>
-        <p class="user-email">${user.email}</p>
-        <p>عرض مبسّط للمستخدم — الاسم والبريد الإلكتروني فقط</p>`;
-  });
+      <span class="card-image">HR</span>
+      <h3 class="user-name">${currentUser.name}</h3>
+      <p class="user-email">${currentUser.email}</p>
+      <p>عرض مبسّط للمستخدم — الاسم والبريد الإلكتروني فقط</p>`;
+  }
 }
 
 //Log in page
 function enterUser(email, password) {
-  const savedUsers = JSON.parse(sessionStorage.getItem("userData")) || [];
+  const savedUsers = JSON.parse(localStorage.getItem("userData")) || [];
   const loginuser = savedUsers.find(
     (user) => user.email === email && user.password === password,
   );
+
   if (loginuser) {
-    sessionStorage.setItem("currentUser", JSON.stringify(loginuser));
+    localStorage.setItem("currentUser", JSON.stringify(loginuser));
     window.location.href = "dashboard.html";
   } else {
-    alert("this user not found you need to creat new accounr");
+    alert("Invlid email or password");
   }
 
   logInForm.reset();
-
-  if (card) {
-    if (savedUsers) {
-      card.innerHTML = `
-      <span class="card-image">HR</span>
-      <h3 class="user-name">${loginuser.name}</h3>
-      <p class="user-email">${loginuser.email}</p>
-      <p>عرض مبسّط للمستخدم — الاسم والبريد الإلكتروني فقط</p>`;
-    }
-  }
 }
+
+//logindashboard
 
 if (logInForm) {
   logInForm.addEventListener("submit", (e) => {
@@ -81,4 +76,3 @@ if (logInForm) {
     enterUser(logInEmail.value, logInPassword.value);
   });
 }
-console.log(userData);

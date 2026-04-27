@@ -4,17 +4,113 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <form action="#" class="signIn-form" id="sign-In-form">
-      <h1>Smart Login System</h1>
-      <input type="text" placeholder="Enter your Name" id="input-name" required/><input
+    <img
+      src="background-imges/firstOne.png"
+      class="bk0images"
+      width="173px"
+      height="94px"
+    /><img
+      src="background-imges/secondeOne.png"
+      width="262px"
+      height="262px"
+      class="bk1images"
+    /><img
+      src="background-imges/thirdOne.png"
+      width="475px"
+      height="442px"
+      class="bk2images"
+    />
+    <img
+      src="background-imges/sixOne.png"
+      width="475px"
+      height="442px"
+      class="bk6images"
+    />
+    <img
+      src="background-imges/fourthOne.png"
+      width="162px"
+      height="107px"
+      class="bk4images"
+    />
+    <img
+      src="background-imges/fifthOne.png"
+      width="145px"
+      height="145px"
+      class="bk5images"
+    />
+    <img
+      src="background-imges/sevenOne.png"
+      width="125px"
+      height="40px"
+      class="bk7images"
+    />
+    <img
+      src="background-imges/aithOne.png"
+      width="514px"
+      height="165px"
+      class="bk8images"
+    />
+    <img
+      src="background-imges/sevenOne.png"
+      width="125px"
+      height="40px"
+      class="bk9images"
+    />
+    <form
+      action="#"
+      class="signIn-form d-flex flex-column align-self-center justify-content-center z-3"
+      id="sign-In-form"
+    >
+      <h1 class="text-light mb-5">Smart Login System</h1>
+      <label for="input-name" class="text-light">Name</label>
+      <input
+        type="text"
+        placeholder="Enter your Name"
+        id="input-name"
+        id="validationTooltip01"
+        class="p-2 border border-0 rounded-1 form-control"
+        required
+      />
+      <label for="email-input" class="text-light">Email</label>
+      <input
         type="email"
         placeholder="Enter your email"
-      id="email-input" required/><input type="password" placeholder="Enter your password" id="password-input"/><input type="submit" value="Sign Up" required />
-      <p>Smart Login System? <a href="index.html">log In</a></p>
+        id="email-input"
+        class="p-2 border border-0 rounded-1 form-control"
+        required
+      />
+      <label for="password-input" class="text-light">Password</label>
+      <input
+        type="password"
+        placeholder="Enter your password"
+        id="password-input"
+        class="p-2 border border-0 rounded-1 form-control"
+      /><input
+        type="submit"
+        value="Sign In"
+        class="sign-in-btn mt-4 p-3 fw-bolder"
+        required
+      />
+      <p class="text-light text-center mt-3">
+        Smart Login System?
+        <a class="text-light fw-bolder" href="index.html">log In</a>
+      </p>
     </form>
     <div class="rege"></div>
   </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+  ></script>
   <script src="script.js"></script>
 </html>
